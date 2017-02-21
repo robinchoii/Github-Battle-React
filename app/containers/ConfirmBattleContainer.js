@@ -13,9 +13,6 @@ var ConfirmBattleContainer = React.createClass({
       playersInfo: []
     }
   },
-  componentWillMount: function() {
-    console.log('component will mount')
-  },
   componentDidMount: function() {
     //fetch info from github then update state
     var query = this.props.location.query;
@@ -28,14 +25,8 @@ var ConfirmBattleContainer = React.createClass({
         })
       }.bind(this))
   },
-  componentWillReceiveProps: function() {
-    console.log('componentWillRecieveProps')
-  },
-  componentWillUnmount: function() {
-    console.log('componentWillUnmount')
-  },
   handleInitiateBattle: function() {
-    this.contextTypes.router.push({
+    this.context.router.push({
       pathname: '/results',
       state: {
         playersInfo: this.state.playersInfo
